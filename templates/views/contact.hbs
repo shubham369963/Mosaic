@@ -1,0 +1,82 @@
+<html lang="en">
+
+    {{>Head}}
+
+    <body>
+
+
+        {{>Loading}}
+
+        {{>Navbar}}
+        <!-- Header -->
+        <header id="header" class="ex-2-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Contact us</h1>
+                        {{!-- <p>You don't have a password? Then please <a class="white" href="/sign-up">Sign Up</a></p> --}}
+                        <!-- Sign Up Form -->
+                        
+                        <div class="form-container">
+                            <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+                                <div class="form-group">
+                                    <input type="text" name="subject" class="form-control-input" id="" required>
+                                    <label class="label-control" for="name">Name</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="reply_to" class="form-control-input" id="" required>
+                                    <label class="label-control" for="email">Email</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" pattern="[0-9]{10}" name="extra_phone_number"
+                                        class="form-control-input" id="" required>
+                                    <label class="label-control" for="phone">Phone</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="text" class="form-control-input" id="" cols="10" rows="5"
+                                        required></textarea>
+                                    <label class="label-control" for="message">Message</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <input type="hidden" name="access_token" value="r2h02dpvai1cq3hfu79x52qw" />
+                                <!-- return urls can be fully qualified -OR-
+         start with / for root relative -OR-
+         start with . for url relative -->
+                                <input type="hidden" name="success_url"
+                                    value=".?message=Email+Successfully+Sent%21&isError=0" />
+                                <input type="hidden" name="error_url"
+                                    value=".?message=Email+could+not+be+sent.&isError=1" />
+                                <div class="form-group">
+                                    <button type="submit" id="submit_form"
+                                        class="form-control-submit-button">Submit</button>
+                                </div>
+                                <div class="form-message">
+                                    <div id="lmsgSubmit" class="h3 text-center hidden"></div>
+                                </div>
+                            </form>
+                        </div> <!-- end of form container -->
+                        <!-- end of sign up form -->
+
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </header> <!-- end of ex-header -->
+        <script>
+            var submitButton = document.getElementById("submit_form");
+    var form = document.getElementById("email_form");
+    form.addEventListener("submit", function (e) {
+        setTimeout(function() {
+            submitButton.value = "Submitting";
+            submitButton.disabled = true;
+        }, 1);
+    });
+        </script>
+
+
+        {{>Scripts}}
+    </body>
+
+</html>
